@@ -1,0 +1,12 @@
+{
+    "name": "naver-product-collector-vercel",
+    "version": "1.0.0",
+    "description": "네이버 쇼핑 상품 정보 수집기 - Vercel 배포용",
+    "main": "api/search.js",
+    "scripts": {
+        "dev": "vercel dev",
+        "deploy": "vercel --prod"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

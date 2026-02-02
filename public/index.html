@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 다정 상품분석기 | 네이버 쇼핑</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">💝</span>
+                <span class="logo-text">다정</span>
+            </div>
+            <h1 class="title">
+                <span class="highlight">네이버 쇼핑</span> 상품 정보 수집기
+            </h1>
+            <p class="subtitle">상품명을 입력하면 GPT용 상품 정보를 자동으로 수집합니다</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="productName">
+                        <span class="icon">🔍</span> 상품명 (필수)
+                    </label>
+                    <input type="text" id="productName" placeholder="예: 가열식 가습기, 무선청소기 등" autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label for="promoLink">
+                        <span class="icon">🔗</span> 홍보 링크 (선택)
+                    </label>
+                    <input type="text" id="promoLink" placeholder="https://naver.me/xxxxx (소개글에 포함됩니다)"
+                        autocomplete="off">
+                </div>
+
+                <button id="searchBtn" class="btn-primary">
+                    <span class="btn-icon">🔎</span> 상품 정보 수집
+                </button>
+                <p class="btn-hint">네이버 쇼핑에서 상품 정보를 검색합니다 (약 2~3초 소요)</p>
+            </div>
+
+            <!-- Loading -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>상품 정보를 수집하고 있습니다...</p>
+            </div>
+
+            <!-- Result Section -->
+            <div id="resultSection" class="result-section hidden">
+                <div class="result-header">
+                    <h2>📋 수집된 상품 정보</h2>
+                    <div class="result-actions">
+                        <button id="copyBtn" class="btn-copy">
+                            <span>📋</span> 복사하기
+                        </button>
+                        <button id="analyzeBtn" class="btn-analyze">
+                            <span>✨</span> 상품 분석하기
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <pre id="resultText"></pre>
+                </div>
+
+                <div class="result-footer">
+                    <span id="charCount">0</span>자
+                </div>
+            </div>
+
+            <!-- Analysis Result Section -->
+            <div id="analysisSection" class="analysis-section hidden">
+                <div class="result-header">
+                    <h2>💝 다정 상품 분석</h2>
+                    <div class="result-actions">
+                        <button id="copyAnalysisBtn" class="btn-copy">
+                            <span>📋</span> 분석글 복사
+                        </button>
+                    </div>
+                </div>
+
+                <div class="analysis-box">
+                    <pre id="analysisText"></pre>
+                </div>
+
+                <div class="result-footer">
+                    <span id="analysisCharCount">0</span>자
+                </div>
+            </div>
+
+            <!-- Product List Section -->
+            <div id="productListSection" class="product-list-section hidden">
+                <h3>🛒 검색된 상품 목록</h3>
+                <p class="hint">클릭하면 해당 상품의 상세 정보가 위에 표시됩니다</p>
+                <div id="productList" class="product-list"></div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>💝 다정 | <span id="currentDate"></span></p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span class="toast-icon">✅</span>
+        <span class="toast-message">클립보드에 복사되었습니다!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
